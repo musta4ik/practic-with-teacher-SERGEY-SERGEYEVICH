@@ -69,7 +69,7 @@ async def cmd_ban(message: types.Message):
     who_banned = message.reply_to_message.from_user.first_name
     await bot.delete_message(chat_id=GROUP_ID, message_id=message.reply_to_message.message_id)
     await bot.ban_chat_member(chat_id=GROUP_ID, user_id=message.reply_to_message.from_user.id)
-    await message.reply_to_message.reply (f'Пользователь <b>{who_banned} </b> забанен', parse_mode='html')
+    await message.answer(f'Пользователь <b>{who_banned} </b> забанен', parse_mode='html')
 
 @dp.message(Command('mute'))
 
