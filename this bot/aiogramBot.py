@@ -58,18 +58,19 @@ async def cmd_ban(message: types.Message):
     if isinstance(user_status,types.chat_member_owner.ChatMemberOwner) or isinstance(user_status,types.chat_member_administrator.ChatMemberAdministrator):
         await message.reply(f' {message.from_user.username} утебя есть права')
     else:
-        await message.reply(f' {message.from_user.username} утебя нету права чтобы газовать') 
+        await message.reply(f' {message.from_user.username} у тебя нет прав так газовать') 
 
 
 
     # #если команды без цитаты 
     if not message.reply_to_message:
-        await message.reply("ПИши команду бан в ответ на собщение")
+        await message.reply("Пиши команду бан в ответ на собщение")
         return
-    bans = message.reply_to_message.from_user.first_name
-    await message.bot.delete_message(chat_id=GROUP_ID, message_id=message.message_id)
-    await message.bot.ban_chat_member(chat_id=GROUP_ID, user_id=message.reply_to_message.from_user.id)
-    await message.reply_to_message.reply (f'Пользователь <b>{bans} </b> забанен', parse_mode='html')
+    who_banned = message.reply_to_message.from_user.first_name
+    await bot.delete_message(chat_id=GROUP_ID, message_id=message.reply_to_message.message_id)
+    await bot.ban_chat_member(chat_id=GROUP_ID, user_id=message.reply_to_message.from_user.id)
+    await message.reply_to_message.reply (f'Пользователь <b>{who_banned} </b> забанен', parse_mode='html')
+
 @dp.message(Command('mute'))
 
 async def cmd_mute(message: types.Message, command: CommandObject,bot:Bot):
