@@ -1,5 +1,5 @@
 # теперь могу исправлять твой код
-# добавил изменения в ветке main
+# добавил изменения в ветке branch_for comments
 import logging
 import asyncio
 # from datetime import datatime
