@@ -1,4 +1,5 @@
 # теперь могу исправлять твой код
+# добавил изменения в ветке main
 import logging
 import asyncio
 # from datetime import datatime
